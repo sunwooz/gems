@@ -24,7 +24,12 @@ module Gems
     #   Gems.info 'rails'
     def info(gem_name)
       response = get("/api/v1/gems/#{gem_name}.json")
-      JSON.parse(response, :quirks_mode => true)
+      puts response.class
+      if response.is_a(String)
+        "Rubygem does not exist"
+      else
+        JSON.parse(response, :quirks_mode => true)
+      end
     end
 
     # Returns an array of active gems that match the query
