@@ -24,7 +24,7 @@ module Gems
     #   Gems.info 'rails'
     def info(gem_name)
       response = get("/api/v1/gems/#{gem_name}.json")
-      JSON.parse(response)
+      JSON.parse(response, :quirks_mode => true)
     end
 
     # Returns an array of active gems that match the query
