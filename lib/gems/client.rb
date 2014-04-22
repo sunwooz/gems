@@ -26,7 +26,7 @@ module Gems
       response = get("/api/v1/gems/#{gem_name}.json")
       puts response.class
       puts response
-      if response.is_a?(String)
+      if response == "Rubygem does not exist"
         "Rubygem does not exist"
       else
         JSON.parse(response, :quirks_mode => true)
