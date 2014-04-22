@@ -25,6 +25,7 @@ module Gems
     def info(gem_name)
       response = get("/api/v1/gems/#{gem_name}.json")
       puts response.class
+      puts response
       if response.is_a?(String)
         "Rubygem does not exist"
       else
